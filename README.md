@@ -5,4 +5,6 @@ Synchronisation-flux-RSS
 
 > c'est vraiment nul markdown en fait
 
-`while(true){ doNothing(); }`
+`while(true){  
+   doNothing();  
+}`
