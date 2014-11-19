@@ -5,5 +5,5 @@ Synchronisation-flux-RSS
 
 Exemple de code :
 
-`while 1:
-    print("lol")`
+`while 1:`
+`    print("lol")`
