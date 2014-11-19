@@ -3,7 +3,4 @@ Synchronisation-flux-RSS
 
 **Projet de Master 1 informatique.**
 
-Exemple de code :
-
-`while 1:`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`print("lol")`
+> c'est vraiment nul markdown en fait
