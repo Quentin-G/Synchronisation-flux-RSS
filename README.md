@@ -12,12 +12,13 @@ while(true){
 
 Commande Git :
 ```
-Cloner le repo			git clone https://github.com/Quentin-G/Synchronisation-flux-RSS
+Cloner le repo : git clone https://github.com/Quentin-G/Synchronisation-flux-RSS
 
-Ajouter un fichier		git commit -a -m "resume_du_commit"
-Valider				git push
+Ajouter un fichier : git commit -a -m "resume_du_commit"
+
+Valider :	git push
 	
-Stocker ID pendant 1h		git config --global credential.helper 'cache --timeout=3600'
+Stocker ID pendant 1h : git config --global credential.helper 'cache --timeout=3600'
 
 - - - Autre - - -
  
