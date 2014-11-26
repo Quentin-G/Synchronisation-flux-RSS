@@ -8,8 +8,7 @@ Synchronisation-flux-RSS
 while(true){
    doNothing();
 }
-``
-`
+```
 
 Commande Git :
 ```
