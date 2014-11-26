@@ -1,7 +1,7 @@
 Synchronisation-flux-RSS
 ========================
 
-**Projet de Master 1 informatique.**ca marche bien ?
+**Projet de Master 1 informatique.**
 
 > texte modifié
 
@@ -11,4 +11,4 @@ while(true){
    doNothing();
 }
 ```
-test modification
+
