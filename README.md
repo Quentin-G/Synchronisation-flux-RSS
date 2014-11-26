@@ -3,7 +3,7 @@ Synchronisation-flux-RSS
 
 **Projet de Master 1 informatique.**
 
-> texte modifié
+> texte modifié 2
 
 *Exemple de code :*
 ```
