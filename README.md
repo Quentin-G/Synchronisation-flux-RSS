@@ -16,7 +16,7 @@ Cloner le repo : 	git clone https://github.com/Quentin-G/Synchronisation-flux-RS
 
 Ajouter un fichier : 	git commit -a -m "resume_du_commit"
 
-Valider :		git push
+Valider :		git push --force
 	
 Stocker ID pendant 1h : git config --global credential.helper 'cache --timeout=3600'
 
