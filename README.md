@@ -27,6 +27,6 @@ git config --global user.email "e-mail"
 
 ```
 
-* Librairie RSS Python *
+*Librairie RSS Python*
 https://pypi.python.org/pypi/feedparser
 
