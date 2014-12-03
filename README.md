@@ -26,7 +26,6 @@ git config --global user.name "pseudo"
 git config --global user.email "e-mail"
 
 ```
-
-*Librairie RSS Python*
-https://pypi.python.org/pypi/feedparser
-
+*Version de Python* 3.4
+*Librairie RSS Python* https://pypi.python.org/pypi/feedparser
+*API Twitter Python* https://github.com/tumblr/pytumblr
