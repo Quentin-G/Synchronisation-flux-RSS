@@ -28,4 +28,4 @@ git config --global user.email "e-mail"
 ```
 *Version de Python* 3.4  
 *Librairie RSS Python* https://pypi.python.org/pypi/feedparser  
-*API Twitter Python* https://github.com/tumblr/pytumblr  
+*API Tumblr Python* https://github.com/michaelhelmick/python-tumblpy  
