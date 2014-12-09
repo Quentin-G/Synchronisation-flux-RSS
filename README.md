@@ -26,6 +26,6 @@ git config --global user.name "pseudo"
 git config --global user.email "e-mail"
 
 ```
-*Version de Python* 2.7 <s>3.4</s> (la plupart des API actuelles ne sont pas compatible Python3)
+*Version de Python* 2.7 <s>3.4</s> (la plupart des API actuelles ne sont pas compatible Python3)  
 *Librairie RSS Python* https://pypi.python.org/pypi/feedparser  
 *API Tumblr Python* https://github.com/tumblr/pytumblr
