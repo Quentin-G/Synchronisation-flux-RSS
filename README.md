@@ -12,11 +12,11 @@ while(true){
 
 Commande Git :
 ```
-Cloner le repo : 	git clone https://github.com/Quentin-G/Synchronisation-flux-RSS
+Cloner le repo : git clone https://github.com/Quentin-G/Synchronisation-flux-RSS
 
-Ajouter un fichier : 	git commit -a -m "resume_du_commit"
+Ajouter un fichier : git commit -a -m "resume_du_commit"
 
-Valider :		git push --force
+Valider : git push
 	
 Stocker ID pendant 1h : git config --global credential.helper 'cache --timeout=3600'
 
@@ -26,4 +26,6 @@ git config --global user.name "pseudo"
 git config --global user.email "e-mail"
 
 ```
-
+*Version de Python* 2.7 <s>3.4</s> (la plupart des API actuelles ne sont pas compatible Python3)  
+*Librairie RSS Python* https://pypi.python.org/pypi/feedparser  
+*API Tumblr Python* https://github.com/tumblr/pytumblr
