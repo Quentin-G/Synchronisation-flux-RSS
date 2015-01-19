@@ -11,50 +11,36 @@ consumer_secret = "MaJswpbog1XeuNr71WqxLnxM7njoBlZRKX6s5g90oWphug2NGM"
 access_token_key = "2912679658-iQxKsmTjJBSquQm66zExG7RvFxJKi3Z8mCwh4gY"
 access_token_secret = "S5CZAtOfZrDL4RXqve2qR9azRaYkD5Ng3OygZlWzK4xEq"
 
-client = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
+api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 
-while True:
+# Getting RSS feed
+d = feedparser.parse('http://jsuis-un-canard.tumblr.com/rss')
 
-	if os.path.exists('guid'):
-		f = open('guid', 'r')
-	else:
-		f = open('guid', 'w')
+# Counting the amount of new entries
+e = 0
 
-	guid = f.read()
-	f.close()
+post = False
 
-	# Getting RSS feed
-	d = feedparser.parse('http://jsuis-un-canard.tumblr.com/rss')
+title = d.entries[0].title
+link = d.entries[0].link
+print(title)
+if(len(title)>114):
+	words = title.split(" ")
+	i = 1
+	statut= words[0]
+	while len(statut)+len(words[i])<114 :
+		statut+=' '+words[i]
+		i+=1
+	r = api.request('statuses/update', {'status':statut+'... '+link})
+else:
+	r = api.request('statuses/update', {'status':title+' '+link})
+	
 
-	# Counting the amount of new entries
-	e = 0
-	for entry in d.entries:
-		if entry.guid == guid or guid != '':
-			break
-		e += 1
+post = True
+print('Message poste :')
+print(r.text)
 
-	post = False
-
-	for i in range(e, 0, -1):
-		title = d.entries[i-1].title.encode('utf8')
-		r = api.request('statuses/update', {'status':body.title.encode('utf8')})
-		post = True
-		print('Message poste')
-
-
-	if post:
-		f = open('guid', 'w')
-		f.write(d.entries[0].guid)
-		f.close()
-		
-	time.sleep(30)
 
 # d.entries[i].link
 # d.entries[i].guid
 
-	
-
-
-
-r = api.request('statuses/update', {'status':body.title.encode('utf8')})
-print r.status_code
