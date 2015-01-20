@@ -30,3 +30,4 @@ git config --global user.email "e-mail"
 *Librairie RSS Python* https://pypi.python.org/pypi/feedparser  
 *API Tumblr Python* https://github.com/tumblr/pytumblr  
 *twitterAPI* https://github.com/geduldig/TwitterAPI
+*facebook-sdk* https://github.com/pythonforfacebook/facebook-sdk
