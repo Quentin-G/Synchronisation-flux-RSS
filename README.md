@@ -6,9 +6,10 @@ Synchronisation-flux-RSS
 (not runnable yet)
 
 #Get ready
-* [set up with facebok](#set-up-on-facebookfacebook)
+* [set up with facebok](#set-up-with-facebook)
+* [set up with twitter](#set-up-with-twitter)
 
-##Set up on Facebook(#facebook)
+##Set up with Facebook
 
 You need :
 * facebook-sdk API for python 
@@ -38,7 +39,11 @@ The Facebook account has to allow the facebook application to publish by its nam
 
 A pop-up may ask the account to confirm the rights to the app. After saying yes, you're done setting up Facebook.
 
+##Set up with twitter
 
+coming soon...
+
+___________________________________________________________________________________________________________________
 *Version de Python* 2.7 <s>3.4</s> (la plupart des API actuelles ne sont pas compatible Python3)  
 *Librairie RSS Python* https://pypi.python.org/pypi/feedparser  
 *API Tumblr Python* https://github.com/tumblr/pytumblr  
