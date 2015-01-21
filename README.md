@@ -6,7 +6,7 @@ Synchronisation-flux-RSS
 (not runnable yet)
 
 #Get ready
-* [set up with facebok](https://github.com/Quentin-G/Synchronisation-flux-RSS/blob/master/README.md#set-up-on-facebookfacebook)
+* [set up with facebok](#set-up-on-facebookfacebook)
 
 ##Set up on Facebook
 
