@@ -2,7 +2,8 @@ Synchronisation-flux-RSS
 ========================
 
 **Projet de Master 1 informatique.**
-`(not runnable yet)`
+
+(not runnable yet)
 
 
 *Exemple de code :*
