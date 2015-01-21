@@ -32,3 +32,4 @@ git config --global user.email "e-mail"
 *twitterAPI* https://github.com/geduldig/TwitterAPI  
 *facebook-sdk* https://github.com/pythonforfacebook/facebook-sdk   
 *requests-oauthlib* https://github.com/requests/requests-oauthlib   
+*python-linkedin* https://github.com/ozgur/python-linkedin
