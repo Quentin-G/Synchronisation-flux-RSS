@@ -8,7 +8,8 @@ Synchronisation-flux-RSS
 #Get ready
 * [set up with facebok](#set-up-with-facebook)
 * [set up with twitter](#set-up-with-twitter)
-* [Set up with LikedIn](#set-up-with-likedin)
+* [Set up with LikedIn](#set-up-with-linkedin)
+* [Set un with Tumblr](#set-up-with-tumblr)
 
 #Set up with Facebook
 
@@ -63,7 +64,7 @@ Eventually, you should visit the "Permission" tab to tick "Read an Write".
 
 Coming soon...
 
-#Set up with LikedIn
+#Set up with LinkedIn
 
 ###python-LinkedIn
 You need this [module](https://github.com/ozgur/python-linkedin), still on GitHub.
@@ -80,7 +81,35 @@ You need in your app's details:
 
 Nothing more! LinkedIn is now ready to use.
 
+#Set up with Tumblr
 
+###pytumblr
+You need the [pytumblr](https://github.com/tumblr/pytumblr) API.
+
+####Register your app
+Let's [create] your own Tumblr app
+
+###Get the IDs
+Still you want 
+* *OAuth consumer key* 
+* *OAuth consumer secret*
+
+Then you have to go to the [api console](https://api.tumblr.com/console/) and enter those two keys to grant the API to publish on the account you're logged with.
+
+this gives you a code like the following one:
+```
+// Authenticate via OAuth
+var tumblr = require('tumblr.js');
+var client = tumblr.createClient({
+  consumer_key: 'eqdUYkdkAk3A66v8OttkpcUyu70X5Qw7pXXXXXXXXXXXX',
+  consumer_secret: '9icV4lZ7CRHkqR5vlvxoVh9g2mE4XKaXXXXXXXXXXXXXXXXXXX',
+  token: 'ObbXH1keCziTqGLfdIsZBeeqI9MxDX9XXXXXXXXXXXXXXXXXXX',
+  token_secret: 'jDIaHbQ7IeXJcZokf9EHk9FmxXXXXXXXXXXXXXXXXXXXXXXXXX'
+});
+```
+So you an have the *token* and the *token_secret* which are also useful.
+
+You now have all you need for Tumblr.
 
 __________________________________________________________________________________________________________________
 *Version de Python* 2.7 <s>3.4</s> (la plupart des API actuelles ne sont pas compatible Python3)  
