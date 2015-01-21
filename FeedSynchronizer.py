@@ -44,7 +44,7 @@ class FeedSynchronizer:
 				
 			e = 0
 			for entry in parsed_rss.entries:
-				if rss_guid == entry.guid or rss_date >= mktime(entry.published_parsed):
+				if rss_guid == entry.guid or rss_date >= mktime(entry.updated_parsed):
 					break
 				e+=1
 				
