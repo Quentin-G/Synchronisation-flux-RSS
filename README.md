@@ -6,13 +6,6 @@ Synchronisation-flux-RSS
 (not runnable yet)
 
 
-*Exemple de code :*
-```
-while(true){
-   doNothing();
-}
-```
-
 Commande Git :
 ```
 Cloner le repo : git clone https://github.com/Quentin-G/Synchronisation-flux-RSS
