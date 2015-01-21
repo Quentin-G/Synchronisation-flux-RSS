@@ -6,9 +6,9 @@ Synchronisation-flux-RSS
 (not runnable yet)
 
 #Get ready
-* [set up with facebok](#set-up-on-facebookfacebook)
+* [set up with facebok](#facebook)
 
-##Set up on Facebook
+##Set up on Facebook(#facebook)
 
 You need :
 * facebook-sdk API for python 
