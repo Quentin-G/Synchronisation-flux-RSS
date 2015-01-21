@@ -16,7 +16,7 @@ You need :
 ###facebook-sdk
 Get it on [GitHub](https://github.com/pythonforfacebook/facebook-sdk).
 
-##Register your Facebook App
+###Register your Facebook App
 To create your application, go to [developpers facebook](https://developers.facebook.com/), 
 register yourself as a developper (valid phone  umber needed), then on "My Apps", select 
 "Add a new App".
