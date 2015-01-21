@@ -6,7 +6,7 @@ Synchronisation-flux-RSS
 (not runnable yet)
 
 #Get ready
-* [set up with facebok](#facebook)
+* [set up with facebok](#set-up-on-facebookfacebook)
 
 ##Set up on Facebook(#facebook)
 
