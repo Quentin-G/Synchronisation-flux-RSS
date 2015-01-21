@@ -8,7 +8,7 @@ Synchronisation-flux-RSS
 #Get ready
 * [set up with facebok](#set-up-with-facebook)
 * [set up with twitter](#set-up-with-twitter)
-* [Set up with LikedIn](#set-up-with-linkedIn)
+* [Set up with LikedIn](#set-up-with-linkedin)
 
 #Set up with Facebook
 
