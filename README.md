@@ -8,10 +8,10 @@ Synchronisation-flux-RSS
 ##Set up on Facebook
 
 You need :
-*facebook-sdk API for python 
-*Register your own App on facebook
-*Find the necessary IDs
-*Grant the rights for App to publish
+* facebook-sdk API for python 
+* Register your own App on facebook
+* Find the necessary IDs
+* Grant the rights for App to publish
 
 ###facebook-sdk
 Get it on [GitHub](https://github.com/pythonforfacebook/facebook-sdk).
