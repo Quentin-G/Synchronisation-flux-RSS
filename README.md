@@ -13,11 +13,15 @@ Synchronisation-flux-RSS
 
 #Set up with Facebook
 
+You have the solution to just [set up twitter](#set-up-with-twitter) and then link your facebook account.
+
+Otherwise...
 You need :
 * facebook-sdk API for python 
 * Register your own App on facebook
 * Find the necessary IDs
 * Grant the rights for App to publish
+
 
 ###facebook-sdk
 Get it on [GitHub](https://github.com/pythonforfacebook/facebook-sdk).
