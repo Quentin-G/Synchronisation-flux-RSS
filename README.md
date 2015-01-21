@@ -53,16 +53,14 @@ You need to register a twitter app [here](https://dev.twitter.com/apps).
 You need froms your app settings in "Key and Access Token" tab, 
 * the *Consumer Key (API Key)* 
 * the *Consumer Secret (API Secret)*
-And then:
+
+And then click on the button below which will generate the following OAuth tokens from your account:
 * the *Access Token* 
 * the *Access Token Secret* 
-of your own account to allow the app to publish on its name.
+This button also add your app ont your account's granted applications.
 
-Eventually, you should visit the "Permission" tab to tick "Read an Write".
+Also, you should visit the "Permission" tab to tick "Read an Write" in order to finish the set up.
 
-###Grant the access to your account
-
-Coming soon...
 
 #Set up with LinkedIn
 
