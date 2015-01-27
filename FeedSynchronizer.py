@@ -4,7 +4,7 @@ import os
 from time import mktime, sleep, time
 import ConfigParser
 
-from RssBase import RssTumblr, RssTwitter, RssFacebook
+from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook
 
 class FeedSynchronizer:
 	""" Class synchronizing an RSS feed to social networks """
@@ -168,7 +168,7 @@ class FeedSynchronizer:
 		consumer_secret = self.config.get('Tumblr', 'consumer_secret')
 		oauth_token = self.config.get('Tumblr', 'oauth_token')
 		oauth_secret = self.config.get('Tumblr', 'oauth_secret')
-		self.networkList.append(RssTumblr(consumer_key, consumer_secret, oauth_token, oauth_secret, tumblr_active))
+		self.networkList.append(SenderTumblr(consumer_key, consumer_secret, oauth_token, oauth_secret, tumblr_active))
 		
 		# Twitter init
 		twitter_active = self.config.getboolean('Twitter', 'active')
@@ -176,13 +176,13 @@ class FeedSynchronizer:
 		consumer_secret = self.config.get('Twitter', 'consumer_secret')
 		oauth_token = self.config.get('Twitter', 'oauth_token')
 		oauth_secret = self.config.get('Twitter', 'oauth_secret')
-		self.networkList.append(RssTwitter(consumer_key, consumer_secret, oauth_token, oauth_secret, twitter_active))
+		self.networkList.append(SenderTwitter(consumer_key, consumer_secret, oauth_token, oauth_secret, twitter_active))
 		
 		# Facebook init
 		facebook_active = self.config.getboolean('Facebook', 'active')
 		app_token = self.config.get('Facebook', 'app_token')
 		user_id = self.config.get('Facebook', 'user_id')
-		self.networkList.append(RssFacebook(app_token, user_id, facebook_active))
+		self.networkList.append(SenderFacebook(app_token, user_id, facebook_active))
 				
 		
 			
