@@ -15,7 +15,7 @@ class BaseNetwork(object):
 		
 	def post(self, message):
 		"""
-			Method posting a feedparser message to the implemented 
+			Posts a feedparser message to the implemented 
 			social network.
 			Returns True if successful
 		"""
@@ -23,7 +23,7 @@ class BaseNetwork(object):
 
 
 class SenderFacebook(BaseNetwork):
-	""" Class implementing the Facebook API """
+	""" Implemetation of the Facebook API """
 
 	def __init__(self, app_token, user_id, active):
 		
@@ -39,7 +39,6 @@ class SenderFacebook(BaseNetwork):
 		link = message['link']
 		
 		try:
-			#self.graph.put_object(self.user_id, "feed", message = title + '\n' + link)
 			self.graph.put_wall_post(message = title, attachment = {'link':link}, profile_id = self.user_id)
 		except Exception as e:
 			print 'Facebook error : ', e.message
@@ -49,7 +48,7 @@ class SenderFacebook(BaseNetwork):
 
 
 class SenderTumblr(BaseNetwork):
-	""" Class implementing the Tumblr API """
+	""" Implemetation of the Tumblr API """
 	
 	def __init__(self,consumer_key,consumer_secret,oauth_token,oauth_secret, active):
 		
@@ -88,7 +87,7 @@ class SenderTumblr(BaseNetwork):
 
 
 class SenderTwitter(BaseNetwork):
-	""" Class implementing the Twitter API """
+	""" Implemetation of the Twitter API """
 	
 	def __init__(self, consumer_key, consumer_secret, oauth_token, oauth_secret, active):
 		

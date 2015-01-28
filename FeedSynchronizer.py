@@ -2,6 +2,7 @@ import pytumblr
 import feedparser
 import os
 from time import mktime, sleep, time
+from calendar import timegm
 import ConfigParser
 
 from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook
@@ -10,10 +11,9 @@ class FeedSynchronizer:
 	""" Class synchronizing an RSS feed to social networks """
 	
 	def run(self):
-		""" Main method, fetching RSS entries to post them """
+		""" Fetches RSS entries to broadcast them on networks """
 		
-		# tmp
-		rss_date = 0
+		timestamp = time()
 		
 		rss_url = self.config.get('RSS', 'url')
 		if rss_url == '':
@@ -38,13 +38,10 @@ class FeedSynchronizer:
 			rss_guid = self.config.get('RSS', 'guid')
 			if rss_guid == '':
 				rss_guid = parsed_rss.entries[0].guid
-			#rss_date = self.config.getfloat('RSS', 'date')
-			#if rss_date == 0:
-			#	rss_date = mktime(parsed_rss.entries[0].published_parsed)
 				
 			e = 0
 			for entry in parsed_rss.entries:
-				if rss_guid == entry.guid or rss_date >= mktime(entry.updated_parsed):
+				if rss_guid == entry.guid or timestamp >= timegm(entry.updated_parsed):
 					break
 				e+=1
 				
@@ -58,68 +55,55 @@ class FeedSynchronizer:
 							print 'Message not posted on ' + network.network_name
 			
 			self.config.set('RSS', 'guid', parsed_rss.entries[0].guid)
-			#self.config.set('RSS', 'date', mktime(parsed_rss.entries[0].published_parsed))
 			self.config_save()
 			
 			sleep(30)
 		
 	def set_rss_url(self, url):
-		"""  Method to set the source RSS feed """
+		"""  Sets the source RSS feed """
 		self.config.set('RSS', 'url', url)
 		self.config.set('RSS', 'guid', '')
-		self.config.set('RSS', 'date', 0.0)
 		self.config_save()
 	
 	def set_network_active(self, network_name, is_active):
-		""" Method to activate/deactivate the use of a network """
+		""" Activates/deactivates the use of a network """
 		
-		if self.config.has_option(network_name, 'active'):
-			self.config.set(network_name, 'active', is_active)			
-			self.config_save()
-			
-			for network in self.networkList:
-				if network.network_name == network_name:
-					network.is_active = is_active
-					break
-		else:
+		if not self.config.has_option(network_name, 'active'):
 			print 'Error : "' + network_name + '" does not exist'
 			return
-	
-	def init_tumblr(self, consumer_key, consumer_secret, oauth_token, oauth_secret, active=False):
-		""" method to initialize the Tumblr API """
 		
-		self.config.set('Tumblr', 'consumer_key', consumer_key)
-		self.config.set('Tumblr', 'consumer_secret', consumer_secret)
-		self.config.set('Tumblr', 'oauth_token', oauth_token)
-		self.config.set('Tumblr', 'oauth_secret', oauth_secret)
-		self.config.set('Tumblr', 'active', active)
-		set_network_active('Tumblr', active)
+		self.config.set(network_name, 'active', is_active)			
 		self.config_save()
+		
+		for network in self.networkList:
+			if network.network_name == network_name:
+				network.is_active = is_active
+				break
 			
-	def init_twitter(self, consumer_key, consumer_secret, oauth_token, oauth_secret, active=False):
-		""" method to initialize the Twitter API """
+	
+	def init_network(self, network_name, keys_dict, active=False):
+		""" Initializes an existing social network API """
 		
-		self.config.set('Twitter', 'consumer_key', consumer_key)
-		self.config.set('Twitter', 'consumer_secret', consumer_secret)
-		self.config.set('Twitter', 'oauth_token', oauth_token)
-		self.config.set('Twitter', 'oauth_secret', oauth_secret)
-		self.config.set('Twitter', 'active', active)
-		set_network_active('Twitter', active)
-		self.config_save()
-				
-	def init_facebook(self, app_token, user_id, active=False):
-		""" method to initialize the Facebook API """
+		if not self.config.has_section(network_name):
+			print 'Error : "' + network_name + '" does not exist'
+			return
 		
-		self.config.set('Facebook', 'active', active)
-		self.config.set('Facebook', 'app_token', app_token)
-		self.config.set('Facebook', 'user_id', user_id)
-		set_network_active('Facebook', active)
+		for key in keys_dict:
+			if not self.config.has_option(network_name, key):
+				print 'Error : "' + key + '" does not exist in "' + network_name + '"'
+				return
+			self.config.set(network_name, key, keys_dict[key])
+			
+		self.config.set(network_name, 'active', active)
+		self.set_network_active(network_name, active)
 		self.config_save()
+		
 		
 	def config_save(self):
-		""" Method to save the current config in a file """
+		""" Saves the current config in a file """
 		with open('config.cfg', 'wb') as configfile:
 				self.config.write(configfile)
+				
 				
 	def __init__(self):
 		""" Initialization of the config file and network list """
@@ -138,7 +122,6 @@ class FeedSynchronizer:
 			# config RSS
 			self.config.set('RSS', 'url', '')
 			self.config.set('RSS', 'guid', '')
-			self.config.set('RSS', 'date', 0.0)
 			
 			# config Tumblr
 			self.config.set('Tumblr', 'active', False)
