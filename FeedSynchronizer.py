@@ -5,59 +5,73 @@ from time import mktime, sleep, time
 from calendar import timegm
 import ConfigParser
 
+from threading import Timer
+
 from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook
 
 class FeedSynchronizer:
 	""" Class synchronizing an RSS feed to social networks """
 	
-	def run(self):
+	def start(self):
+		""" Starts the broadcast Timer """
+		
+		self.timestamp = time()
+		self.timer = Timer(self.refresh_time, self._broadcast)
+		self.timer.start()
+		
+	def stop(self):
+		""" Stops the broadcast Timer """
+		
+		self.timer.cancel()
+	
+	def _broadcast(self):
 		""" Fetches RSS entries to broadcast them on networks """
 		
-		timestamp = time()
+		self.timer = Timer(self.refresh_time, self._broadcast)
+		self.timer.start()
+		print 'proc!'
 		
-		rss_url = self.config.get('RSS', 'url')
-		if rss_url == '':
+		if self.rss_url == '':
 			print 'Error : RSS url missing'
-			return		
+			return
+	
+		parsed_rss = feedparser.parse(self.rss_url)
+		if parsed_rss.bozo == 1:
+			print 'Error : ' + parsed_rss.bozo_exception
+			return
+		if parsed_rss.entries == []:
+			print 'Alert : no entries in this RSS feed'
+			return
 		
-		# main loop
-		while True:
-			parsed_rss = feedparser.parse(rss_url)
-			if parsed_rss.bozo == 1:
-				print 'Error : ' + parsed_rss.bozo_exception
-				return
-			if parsed_rss.entries == []:
-				print 'Alert : no entries in this RSS feed'
-				
-			# waiting for entries
-			while parsed_rss.entries == []:
-				sleep(30)
-				parsed_rss = feedparser.parse(rss_url)
+		# guid & date
+		rss_guid = self.config.get('RSS', 'guid')
+		if rss_guid == '':
+			rss_guid = parsed_rss.entries[0].guid
 			
-			# guid & date
-			rss_guid = self.config.get('RSS', 'guid')
-			if rss_guid == '':
-				rss_guid = parsed_rss.entries[0].guid
-				
-			e = 0
-			for entry in parsed_rss.entries:
-				if rss_guid == entry.guid or timestamp >= timegm(entry.updated_parsed):
-					break
-				e+=1
-				
-			# posting
-			for i in range(e, 0, -1):
-				for network in self.networkList:
-					if network.is_active:
-						if network.post(parsed_rss.entries[i - 1]):
-							print 'Message posted on ' + network.network_name
-						else:
-							print 'Message not posted on ' + network.network_name
+		e = 0
+		for entry in parsed_rss.entries:
+			if rss_guid == entry.guid or self.timestamp >= timegm(entry.updated_parsed):
+				break
+			e+=1
 			
-			self.config.set('RSS', 'guid', parsed_rss.entries[0].guid)
-			self.config_save()
+		# posting
+		for i in range(e, 0, -1):
+			for network in self.networkList:
+				if network.is_active:
+					if network.post(parsed_rss.entries[i - 1]):
+						print 'Message posted on ' + network.network_name
+					else:
+						print 'Message not posted on ' + network.network_name
+		
+		self.config.set('RSS', 'guid', parsed_rss.entries[0].guid)
+		self.config_save()
+
 			
-			sleep(30)
+	def set_refresh(self, refresh):
+		""" Sets the refresh time """
+		self.refresh_time = refresh
+		self.config.set('RSS', 'refresh_time', refresh)
+		self.config_save()
 		
 	def set_rss_url(self, url):
 		"""  Sets the source RSS feed """
@@ -122,6 +136,7 @@ class FeedSynchronizer:
 			# config RSS
 			self.config.set('RSS', 'url', '')
 			self.config.set('RSS', 'guid', '')
+			self.config.set('RSS', 'refresh_time', 30)
 			
 			# config Tumblr
 			self.config.set('Tumblr', 'active', False)
@@ -168,7 +183,8 @@ class FeedSynchronizer:
 		self.networkList.append(SenderFacebook(app_token, user_id, facebook_active))
 				
 		
-			
+		self.rss_url = self.config.get('RSS', 'url')			
+		self.refresh_time = self.config.getint('RSS', 'refresh_time')
 			
 			
 			
