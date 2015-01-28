@@ -109,7 +109,7 @@ var client = tumblr.createClient({
   token_secret: 'jDIaHbQ7IeXJcZokf9EHk9FmxXXXXXXXXXXXXXXXXXXXXXXXXX'
 });
 ```
-So you an have the *token* and the *token_secret* which are also useful.
+So you have the *token* and the *token_secret* which are also useful.
 
 You now have all you need for Tumblr.
 
