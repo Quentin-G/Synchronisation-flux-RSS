@@ -29,7 +29,6 @@ class FeedSynchronizer:
 		
 		self.timer = Timer(self.refresh_time, self._broadcast)
 		self.timer.start()
-		print 'proc!'
 		
 		if self.rss_url == '':
 			print 'Error : RSS url missing'
