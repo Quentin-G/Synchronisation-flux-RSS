@@ -4,10 +4,8 @@ import os
 from time import mktime, sleep, time
 from calendar import timegm
 import ConfigParser
-
 from threading import Timer
-
-from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook
+from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook, SenderLinkedin
 
 class FeedSynchronizer:
 	""" Class synchronizing an RSS feed to social networks """
@@ -26,10 +24,7 @@ class FeedSynchronizer:
 	
 	def _broadcast(self):
 		""" Fetches RSS entries to broadcast them on networks """
-		
-		self.timer = Timer(self.refresh_time, self._broadcast)
-		self.timer.start()
-		
+				
 		if self.rss_url == '':
 			print 'Error : RSS url missing'
 			return
@@ -65,6 +60,8 @@ class FeedSynchronizer:
 		self.config.set('RSS', 'guid', parsed_rss.entries[0].guid)
 		self.config_save()
 
+		self.timer = Timer(self.refresh_time, self._broadcast)
+		self.timer.start()
 			
 	def set_refresh(self, refresh):
 		""" Sets the refresh time """
@@ -75,6 +72,7 @@ class FeedSynchronizer:
 	def set_rss_url(self, url):
 		"""  Sets the source RSS feed """
 		self.config.set('RSS', 'url', url)
+		self.rss_url = url
 		self.config.set('RSS', 'guid', '')
 		self.config_save()
 	
@@ -156,31 +154,45 @@ class FeedSynchronizer:
 			self.config.set('Facebook', 'app_token', '')
 			self.config.set('Facebook', 'user_id', '')
 			
+			# config LinkedIn
+			self.config.set('LinkedIn', 'active', False)
+			self.config.set('LinkedIn', 'consumer_key', '')
+			self.config.set('LinkedIn', 'consumer_secret', '')
+			self.config.set('LinkedIn', 'user_token', '')
+			self.config.set('LinkedIn', 'user_secret', '')
+			
 			# config save
 			self.config_save()
 		
 		# Tumblr init
-		tumblr_active = self.config.getboolean('Tumblr', 'active')
+		active = self.config.getboolean('Tumblr', 'active')
 		consumer_key = self.config.get('Tumblr', 'consumer_key')
 		consumer_secret = self.config.get('Tumblr', 'consumer_secret')
 		oauth_token = self.config.get('Tumblr', 'oauth_token')
 		oauth_secret = self.config.get('Tumblr', 'oauth_secret')
-		self.networkList.append(SenderTumblr(consumer_key, consumer_secret, oauth_token, oauth_secret, tumblr_active))
+		self.networkList.append(SenderTumblr(consumer_key, consumer_secret, oauth_token, oauth_secret, active))
 		
 		# Twitter init
-		twitter_active = self.config.getboolean('Twitter', 'active')
+		active = self.config.getboolean('Twitter', 'active')
 		consumer_key = self.config.get('Twitter', 'consumer_key')
 		consumer_secret = self.config.get('Twitter', 'consumer_secret')
 		oauth_token = self.config.get('Twitter', 'oauth_token')
 		oauth_secret = self.config.get('Twitter', 'oauth_secret')
-		self.networkList.append(SenderTwitter(consumer_key, consumer_secret, oauth_token, oauth_secret, twitter_active))
+		self.networkList.append(SenderTwitter(consumer_key, consumer_secret, oauth_token, oauth_secret, active))
 		
 		# Facebook init
-		facebook_active = self.config.getboolean('Facebook', 'active')
+		active = self.config.getboolean('Facebook', 'active')
 		app_token = self.config.get('Facebook', 'app_token')
 		user_id = self.config.get('Facebook', 'user_id')
-		self.networkList.append(SenderFacebook(app_token, user_id, facebook_active))
-				
+		self.networkList.append(SenderFacebook(app_token, user_id, active))
+		
+		# LinkedIn init
+		active = self.config.getboolean('LinkedIn', 'active')
+		consumer_key = self.config.get('LinkedIn', 'consumer_key')
+		consumer_secret = self.config.get('LinkedIn', 'consumer_secret')
+		oauth_token = self.config.get('LinkedIn', 'user_token')
+		oauth_secret = self.config.get('LinkedIn', 'user_secret')
+		self.networkList.append(SenderLinkedin(consumer_key, consumer_secret, oauth_token, oauth_secret, active))
 		
 		self.rss_url = self.config.get('RSS', 'url')			
 		self.refresh_time = self.config.getint('RSS', 'refresh_time')

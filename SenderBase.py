@@ -4,6 +4,7 @@ import os
 import ast
 import pytumblr
 import facebook
+from linkedin import linkedin
 from TwitterAPI import TwitterAPI
 
 class BaseNetwork(object):
@@ -23,7 +24,7 @@ class BaseNetwork(object):
 
 
 class SenderFacebook(BaseNetwork):
-	""" Implemetation of the Facebook API """
+	""" Implementation of the Facebook API """
 
 	def __init__(self, app_token, user_id, active):
 		
@@ -40,15 +41,19 @@ class SenderFacebook(BaseNetwork):
 		
 		try:
 			self.graph.put_wall_post(message = title, attachment = {'link':link}, profile_id = self.user_id)
-		except Exception as e:
-			print 'Facebook error : ', e.message
-			return False
+		except:
+			try:
+				# Sometimes the Facebook API does not allow links as attachment, workaround :
+				self.graph.put_wall_post(message = title + '\n' + link, profile_id = self.user_id)
+			except Exception as e:
+				print 'Facebook error : ', e.message
+				return False
 		
 		return True
 
 
 class SenderTumblr(BaseNetwork):
-	""" Implemetation of the Tumblr API """
+	""" Implementation of the Tumblr API """
 	
 	def __init__(self,consumer_key,consumer_secret,oauth_token,oauth_secret, active):
 		
@@ -87,7 +92,7 @@ class SenderTumblr(BaseNetwork):
 
 
 class SenderTwitter(BaseNetwork):
-	""" Implemetation of the Twitter API """
+	""" Implementation of the Twitter API """
 	
 	def __init__(self, consumer_key, consumer_secret, oauth_token, oauth_secret, active):
 		
@@ -128,4 +133,33 @@ class SenderTwitter(BaseNetwork):
 				print 'Twitter error : ' + result['errors'][0]['message']
 				return False
 		return True
+
+
+class SenderLinkedin(BaseNetwork):
+	""" Implementation of the LinkedIn API """
 	
+	def __init__(self, consumer_key, consumer_secret, user_token, user_secret, active):
+		# Authenticate via OAuth
+		authentication = linkedin.LinkedInDeveloperAuthentication(
+			consumer_key,
+			consumer_secret,
+			user_token,
+			user_secret,
+			'https://www.linkedin.com', 
+			linkedin.PERMISSIONS.enums.values()
+		)
+		self.application = linkedin.LinkedInApplication(authentication)
+		BaseNetwork.__init__(self, active, 'LinkedIn')
+			
+	def post(self, message):
+			
+		title = message['title'] + '\n' + message['link']
+		 
+		try:
+			#Forme du message: (Commentaire, titre, description, lien, image-url) 
+			res = self.application.submit_share(title, None, None, None, None)
+			return True
+		except Exception as e:
+			print 'LinkedIn error : ', e.message
+			
+			
