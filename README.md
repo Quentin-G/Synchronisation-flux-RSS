@@ -29,7 +29,7 @@ FeedSynchronizer now endlessly check the RSS flux and post new instances on the 
 
 To end the execution, use the "stop" method on the instancied variable.
 
-Execution example :
+###Execution example :
 
     from feedSynchronizer import FeedSynchronizer
     fs = FeedSynchronizer()
