@@ -5,7 +5,7 @@ Synchronisation-flux-RSS
 
 #Needs
 
-You just need [Python](https://www.python.org/downloads/) to execute the files
+You just need [Python 2](https://www.python.org/downloads/) to execute the files
 
 #Get ready
 * [The main app](#the-main-app)
@@ -32,7 +32,7 @@ To end the execution, use the "stop" method on the instancied variable.
 ###Execution example :
 
     from feedSynchronizer import FeedSynchronizer
-    fs = FeedSynchronizer()
+    fs = FeedSynchronizer()     /* --> create config file if it does not exist */
     fs.start()
     /* deamon running */
     message posted on Twitter
