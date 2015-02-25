@@ -16,9 +16,13 @@ You just need [Python](https://www.python.org/downloads/) to execute the files
 
 
 #The main app
-Fisrt of all, you need to download the 2 files : "FeedSynchronizer.py", "SenderBase.py"
-Execute FeedSynchronizer.py 
-Then you may use the config file in order to syndhronize a social network with 
+Fisrt of all, you need to download the 2 files : "FeedSynchronizer.py" and "SenderBase.py".
+You have to modify FeedSynchronizer.py in order to choose an RSS flux to follow (line 134).
+
+    # config RSS
+    self.config.set('RSS', 'url', 'YOUR RSS URL HERE')
+
+Execute FeedSynchronizer.py you get a "config.cfg" file.
 
 
 #Set up with Facebook 
