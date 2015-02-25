@@ -20,10 +20,14 @@ Fisrt of all, you need to download the 2 files : "FeedSynchronizer.py" and "Send
 You have to modify FeedSynchronizer.py in order to choose an RSS flux to follow (line 134).
 
     # config RSS
-    self.config.set('RSS', 'url', 'YOUR RSS URL HERE')
+    self.config.set('RSS', 'url', 'YOUR_RSS_URL_HERE')
 
-Execute FeedSynchronizer.py you get a "config.cfg" file.
+You may also modify the following lines to configure social networks with this RSS. Learn how to do it with the following parts of this manual.
 
+Once the modifications are done, execute FeedSynchronizer.py. You get a "config.cfg" file used by FeedSynchronizer. If you delete it, a new execution will create a new one.
+FeedSynchronizer now endlessly check the RSS flux and post new instances on the configured social networks.
+
+To end the execution, use the "stop" method on the instancied variable.
 
 #Set up with Facebook 
 
