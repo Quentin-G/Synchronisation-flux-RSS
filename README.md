@@ -29,6 +29,18 @@ FeedSynchronizer now endlessly check the RSS flux and post new instances on the 
 
 To end the execution, use the "stop" method on the instancied variable.
 
+Execution example :
+
+    from feedSynchronizer import FeedSynchronizer
+    fs = FeedSynchronizer()
+    fs.start()
+    /* deamon running */
+    message posted on Twitter
+    message posted on Tumblr
+    fs.stop()
+    /* end */
+    
+
 #Set up with Facebook 
 
 You have the solution to just [set up twitter](#set-up-with-twitter) and then link your facebook account.
