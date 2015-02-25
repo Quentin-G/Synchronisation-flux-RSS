@@ -3,15 +3,25 @@ Synchronisation-flux-RSS
 
 **Projet de Master 1 informatique.**
 
-(not runnable yet)
+#Needs
+
+You just need [Python](https://www.python.org/downloads/) to execute the files
 
 #Get ready
+* [The main app](#the-main-app)
 * [set up with facebok](#set-up-with-facebook)
 * [set up with twitter](#set-up-with-twitter)
 * [Set up with LinkedIn](#set-up-with-linkedin)
 * [Set un with Tumblr](#set-up-with-tumblr)
 
-#Set up with Facebook
+
+#The main app
+Fisrt of all, you need to download the 2 files : "FeedSynchronizer.py", "SenderBase.py"
+Execute FeedSynchronizer.py 
+Then you may use the config file in order to syndhronize a social network with 
+
+
+#Set up with Facebook 
 
 You have the solution to just [set up twitter](#set-up-with-twitter) and then link your facebook account.
 
