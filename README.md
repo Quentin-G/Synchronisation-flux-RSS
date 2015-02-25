@@ -16,14 +16,24 @@ You just need [Python 2](https://www.python.org/downloads/) to execute the files
 
 
 #The main app
+
+###Configure rss
 Fisrt of all, you need to download the 2 files : "FeedSynchronizer.py" and "SenderBase.py".
-You have to modify FeedSynchronizer.py in order to choose an RSS flux to follow (line 134).
+You have to create an instance of FeedSynchronizer in order to choose an RSS flux to follow.
 
-    # config RSS
-    self.config.set('RSS', 'url', 'YOUR_RSS_URL_HERE')
+    fs = FeedSynchronizer()
+    fs.set_rss_url('http://example.com/rss')
 
-You may also modify the following lines to configure social networks with this RSS. Learn how to do it with the following parts of this manual.
+###Confugure social networks
+You may also configure the social networks you want to use, with the "init_network" function.
+You need a dictionary as following:
 
+    Network_dict = {'consumer_key':'YOUR_KEY', 'consumer_secret':'YOUR_KEY', 'oauth_token':'YOUR_KEY', 'oauth_secret':'YOUR_KEY'}
+
+it makes a variable usable in the init_network function :
+
+    fs.init_network('Network_name', Network_dict, true)
+    
 Once the modifications are done, execute FeedSynchronizer.py. You get a "config.cfg" file used by FeedSynchronizer. If you delete it, a new execution will create a new one.
 FeedSynchronizer now endlessly check the RSS flux and post new instances on the configured social networks.
 
@@ -33,10 +43,13 @@ To end the execution, use the "stop" method on the instancied variable.
 
     from feedSynchronizer import FeedSynchronizer
     fs = FeedSynchronizer()     /* --> create config file if it does not exist */
+    twitter_dict = {'consumer_key':'YOUR_KEY', 'consumer_secret':'YOUR_KEY', 'oauth_token':'YOUR_KEY', 'oauth_secret':'YOUR_KEY'}
+    fs.set_rss_url('http://example.com/rss')
+    fs.init_network('Twitter', twitter_dict, true)
     fs.start()
     /* deamon running */
     message posted on Twitter
-    message posted on Tumblr
+    message posted on Twitter
     fs.stop()
     /* end */
     
