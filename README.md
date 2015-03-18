@@ -5,7 +5,20 @@ Synchronisation-flux-RSS
 
 #Needs
 
-You just need [Python 2](https://www.python.org/downloads/) to execute the files
+You just need [Python 2](https://www.python.org/downloads/) to execute the files.
+
+###Building on Unix
+type "./configure" in the
+current directory and when it finishes, type "make".  This creates an
+executable "./python"; to install in /usr/local, first do "su root"
+and then "make install".
+Be aware of the Build instructions in python's Readme file.
+
+###Installing on Windows
+You have precompiled installers on the link above. You mays also see [here](https://docs.python.org/2.7/using/windows.html#installing-python) different ways to install
+
+###Installing on Mac-OS
+Mac OS X 10.8 comes with Python 2.7 pre-installed by Apple. Otherwise, you may see [this documentation](https://docs.python.org/2.7/using/mac.html). You also have python installers for Mac OS X [here](https://www.python.org/downloads/mac-osx/)
 
 #Get ready
 * [The main app](#the-main-app)
