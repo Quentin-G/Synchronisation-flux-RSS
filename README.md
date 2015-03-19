@@ -17,10 +17,10 @@ Synchronisation-flux-RSS
 You just need [Python 2](https://www.python.org/downloads/) to execute the files.
 
 ###Building on Unix
-type "./configure" in the
-current directory and when it finishes, type "make".  This creates an
-executable "./python"; to install in /usr/local, first do "su root"
-and then "make install".
+First download the sources on the link above.
+Type "./configure" in the current directory and when it finishes, type "make".  This creates an
+executable "./python"; to install in /usr/local, first do "su root" and then "make install".
+
 Be aware of the Build instructions in python's Readme file.
 
 ###Installing on Windows
