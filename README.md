@@ -5,9 +5,9 @@ Synchronisation-flux-RSS
 
 #Get ready
 * [First needs](#Needs)
-*   [Python on unix](#Building-on-Unix)
-*   [Python on Windows](#Installing-on-Windows)
-*   [Python on MAC OS](#Installing-on-Mac-OS)
+*   [Python on unix](#building-on-unix)
+*   [Python on Windows](#installing-on-windows)
+*   [Python on MAC OS](#installing-on-mac-os)
 * [The main app](#the-main-app)
 *   [set up with facebok](#set-up-with-facebook)
 *   [set up with twitter](#set-up-with-twitter)
