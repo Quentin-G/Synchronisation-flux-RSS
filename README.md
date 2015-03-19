@@ -4,15 +4,15 @@ Synchronisation-flux-RSS
 **Projet de Master 1 informatique.**
 
 #Get ready
-* ###[First needs](#Needs)
-* [Python on unix](#Building on Unix)
-* [Python on Windows](#Installing on Windows)
-* [Python on MAC OS](#Installing on Mac-OS)
-* ###[The main app](#the-main-app)
-* [set up with facebok](#set-up-with-facebook)
-* [set up with twitter](#set-up-with-twitter)
-* [Set up with LinkedIn](#set-up-with-linkedin)
-* [Set un with Tumblr](#set-up-with-tumblr)
+* [First needs](#Needs)
+*   [Python on unix](#Building on Unix)
+*   [Python on Windows](#Installing on Windows)
+*   [Python on MAC OS](#Installing on Mac-OS)
+* [The main app](#the-main-app)
+*   [set up with facebok](#set-up-with-facebook)
+*   [set up with twitter](#set-up-with-twitter)
+*   [Set up with LinkedIn](#set-up-with-linkedin)
+*   [Set un with Tumblr](#set-up-with-tumblr)
 
 #Needs
 
