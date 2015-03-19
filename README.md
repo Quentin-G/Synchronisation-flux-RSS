@@ -5,14 +5,12 @@ Synchronisation-flux-RSS
 
 #Get ready
 * [First needs](#needs)
-*   [Python on unix](#building-on-unix)
-*   [Python on Windows](#installing-on-windows)
-*   [Python on MAC OS](#installing-on-mac-os)
 * [The main app](#the-main-app)
-*   [set up with facebok](#set-up-with-facebook)
-*   [set up with twitter](#set-up-with-twitter)
-*   [Set up with LinkedIn](#set-up-with-linkedin)
-*   [Set un with Tumblr](#set-up-with-tumblr)
+* [User interface](#the-user-interface)
+* [set up with facebok](#set-up-with-facebook)
+* [set up with twitter](#set-up-with-twitter)
+* [Set up with LinkedIn](#set-up-with-linkedin)
+* [Set un with Tumblr](#set-up-with-tumblr)
 
 #Needs
 
@@ -70,6 +68,13 @@ To end the execution, use the "stop" method on the instancied variable.
     fs.stop()
     /* end */
     
+#The user interface
+
+###
+
+
+###
+
 
 #Set up with Facebook 
 
