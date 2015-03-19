@@ -3,6 +3,17 @@ Synchronisation-flux-RSS
 
 **Projet de Master 1 informatique.**
 
+#Get ready
+* [First needs](#Needs)
+** [Python on unix](#Building on Unix)
+** [Python on Windows](#Installing on Windows)
+** [Python on MAC OS](#Installing on Mac-OS)
+* [The main app](#the-main-app)
+** [set up with facebok](#set-up-with-facebook)
+** [set up with twitter](#set-up-with-twitter)
+** [Set up with LinkedIn](#set-up-with-linkedin)
+** [Set un with Tumblr](#set-up-with-tumblr)
+
 #Needs
 
 You just need [Python 2](https://www.python.org/downloads/) to execute the files.
@@ -19,13 +30,6 @@ You have precompiled installers on the link above. You mays also see [here](http
 
 ###Installing on Mac-OS
 Mac OS X 10.8 comes with Python 2.7 pre-installed by Apple. Otherwise, you may see [this documentation](https://docs.python.org/2.7/using/mac.html). You also have python installers for Mac OS X [here](https://www.python.org/downloads/mac-osx/)
-
-#Get ready
-* [The main app](#the-main-app)
-* [set up with facebok](#set-up-with-facebook)
-* [set up with twitter](#set-up-with-twitter)
-* [Set up with LinkedIn](#set-up-with-linkedin)
-* [Set un with Tumblr](#set-up-with-tumblr)
 
 
 #The main app
