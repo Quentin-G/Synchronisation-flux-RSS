@@ -4,7 +4,7 @@ Synchronisation-flux-RSS
 **Projet de Master 1 informatique.**
 
 #Get ready
-* [First needs](#Needs)
+* [First needs](#needs)
 *   [Python on unix](#building-on-unix)
 *   [Python on Windows](#installing-on-windows)
 *   [Python on MAC OS](#installing-on-mac-os)
