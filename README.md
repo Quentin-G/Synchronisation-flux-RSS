@@ -16,6 +16,16 @@ Synchronisation-flux-RSS
 
 You just need [Python 2](https://www.python.org/downloads/) to execute the files.
 
+For the social networks API, you may use the pip bundle (rss_sync_bundled.tar.bz2). Don't forget to install [wheel](#https://pypi.python.org/pypi/wheel) using this command:
+    
+    pip install wheel
+    
+Then you can install all the dependancies as following:
+
+    tempdir=$(mktemp -d /tmp/wheelhouse-XXXXX)
+    (cd $tempdir; tar -xvf /path/to/bundled.tar.bz2)
+    pip install --force-reinstall --ignore-installed --upgrade --no-index --use-wheel --no-deps $tempdir/*
+
 ###Building on Unix
 First download the sources on the link above.
 Type "./configure" in the current directory and when it finishes, type "make".  This creates an
