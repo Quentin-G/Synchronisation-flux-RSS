@@ -119,7 +119,7 @@ You need :
 
 
 ###facebook-sdk
-Get it on [GitHub](https://github.com/pythonforfacebook/facebook-sdk).
+Get it on [GitHub](https://github.com/pythonforfacebook/facebook-sdk), unless you used our pip bundle.
 
 ###Register your Facebook App
 To create your application, go to [developpers facebook](https://developers.facebook.com/), 
@@ -143,7 +143,7 @@ A pop-up may ask the account to confirm the rights to the app. After saying yes,
 #Set up with twitter
 
 ###TwitterAPI
-Get it on [GitHub](https://github.com/geduldig/TwitterAPI)
+Get it on [GitHub](https://github.com/geduldig/TwitterAPI), unless you used our pip bundle.
 
 ###Register your app
 You need to register a twitter app [here](https://dev.twitter.com/apps).
@@ -164,7 +164,7 @@ Also, you should visit the "Permission" tab to tick "Read an Write" in order to 
 #Set up with LinkedIn
 
 ###python-LinkedIn
-You need this [module](https://github.com/ozgur/python-linkedin), still on GitHub.
+You need this [module](https://github.com/ozgur/python-linkedin), unless you used our pip bundle.
 
 ###Register your app
 You have to register a LikedIn [app here](https://www.linkedin.com/secure/developer)
@@ -181,7 +181,7 @@ Nothing more! LinkedIn is now ready to use.
 #Set up with Tumblr
 
 ###pytumblr
-You need the [pytumblr](https://github.com/tumblr/pytumblr) API.
+You need the [pytumblr](https://github.com/tumblr/pytumblr) API, unless you used our pip bundle.
 
 ####Register your app
 Let's [create] your own Tumblr app
