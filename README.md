@@ -70,11 +70,31 @@ To end the execution, use the "stop" method on the instancied variable.
     
 #The user interface
 
-###
-Coming soon...
+The user interface is to simply set up the application to work. You can set up the RSS link and all the social networks IDs and options.
 
-###
+To make it run, you will need to install the following :
+* lighttpd for the server
+* mod_fastcgi for the interface
+* python2-flup for WSGI server
 
+Then add these lines to the lighttpd configuration file
+###/etc/lighttpd/lighttpd.conf :
+
+    server.modules += ( "mod_fastcgi" )
+    fastcgi.server = (".py" => (
+    				"python-fcgi" => (
+    				"socket" => "/tmp/fastcgi.socket",
+    				"bin-path" => "<PATH>/web.py",
+    				"check-local" => "disable",
+    				"min-procs" => 1,
+    				"max-procs" => 1,
+    				)
+    			)
+    		)
+
+... where <PATH> represent the path to the FeedSynchronizer folder.
+
+Next you need to run the server using ``` systemctl start lighttdp ```, it will be accessible at localhost/web.py
 
 #Set up with Facebook 
 
