@@ -6,6 +6,8 @@ import pytumblr
 import facebook
 from linkedin import linkedin
 from TwitterAPI import TwitterAPI
+from wordpress_xmlrpc import Client, WordPressPost
+from wordpress_xmlrpc.methods.posts import NewPost
 
 class BaseNetwork(object):
 	""" Base class for social network APIs """
@@ -54,24 +56,21 @@ class SenderFacebook(BaseNetwork):
 
 class SenderWordpress(BaseNetwork):
 	""" Implementation of the Wordpress API """
-	def __init__(self, username, password,url, active)
-		self.client = ( url , username, password )
+	def __init__(self, username, password, url, active):
+		self.wp_username = username
+		self.wp_password = password
+		self.wp_url = url
 		
-		BaseNetwork.__init__(self, active, 'Facebook')
+		BaseNetwork.__init__(self, active, 'Wordpress')
 		
-	def post(self,message)
+	def post(self,message):
+		client = Client(self.wp_url, self.wp_username, self.wp_password)
+		
+		post = WordPressPost()
 		post.title = message['title']
 		post.content = message['summary_detail']['value'].encode('utf8') + "\n" + message['link'].encode('utf8')
-""" Tag and categories if needed :
-		post.terms_names = {
-			'post_tag': ['FeedSynchronizer', 'RSSfeed'],
-			'category': ['FeedSynchronizer']
-		}
-"""
 		post.post_status = 'publish'
-		client.call(NewPost(post))
-		
-		
+		return client.call(NewPost(post)) == 102
 		
 
 class SenderTumblr(BaseNetwork):

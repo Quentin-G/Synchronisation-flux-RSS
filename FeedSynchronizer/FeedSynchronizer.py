@@ -4,7 +4,7 @@ from time import mktime, sleep, time
 from calendar import timegm
 import ConfigParser
 from threading import Timer
-from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook, SenderLinkedin
+from SenderBase import SenderTumblr, SenderTwitter, SenderFacebook, SenderLinkedin, SenderWordpress
 
 class FeedSynchronizer:
 	""" Class synchronizing an RSS feed to social networks """
@@ -121,13 +121,15 @@ class FeedSynchronizer:
 		self.networkList = []
 		
 		# first execution
-		if self.config.read('config.cfg') == []:
+		if self.config.read('config.cfg') == [] || self.config.read('config.cfg') == ['config.cfg']:
 			
 			# config sections
 			self.config.add_section('RSS')
 			self.config.add_section('Tumblr')
 			self.config.add_section('Twitter')
 			self.config.add_section('Facebook')
+			self.config.add_section('Wordpress')
+			self.config.add_section('LinkedIn')
 			
 			# config RSS
 			self.config.set('RSS', 'url', '')
@@ -141,11 +143,11 @@ class FeedSynchronizer:
 			self.config.set('Tumblr', 'oauth_token', '')
 			self.config.set('Tumblr', 'oauth_secret', '')
 			
-			#Wordpress init
+			# config Wordpress
 			self.config.set('Wordpress', 'active', False)
-			self.config.get('Wordpress','username')
-			self.config.get('Wordpress','password')
-			self.config.get('Wordpress','url')
+			self.config.set('Wordpress', 'username', '')
+			self.config.set('Wordpress', 'password', '')
+			self.config.set('Wordpress', 'url', '')
 			
 			# config Twitter
 			self.config.set('Twitter', 'active', False)
