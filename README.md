@@ -10,7 +10,8 @@ Synchronisation-flux-RSS
 * [set up with facebok](#set-up-with-facebook)
 * [set up with twitter](#set-up-with-twitter)
 * [Set up with LinkedIn](#set-up-with-linkedin)
-* [Set un with Tumblr](#set-up-with-tumblr)
+* [Set up with Tumblr](#set-up-with-tumblr)
+* [Set up with WordPress](#set-up-with-wordpress)
 
 #Needs
 
@@ -175,7 +176,7 @@ Nothing more! LinkedIn is now ready to use.
 #Set up with Tumblr
 
 ###pytumblr
-You need the [pytumblr](https://github.com/tumblr/pytumblr) API, unless you used our pip bundle.
+You need the [pytumblr](https://github.com/tumblr/pytumblr) API, *unless* you used our pip bundle.
 
 ####Register your app
 Let's [create] your own Tumblr app
@@ -201,6 +202,21 @@ var client = tumblr.createClient({
 So you have the *token* and the *token_secret* which are also useful.
 
 You now have all you need for Tumblr.
+
+# Set up with WordPress
+
+###WordPress xmlrpc
+
+You need the [wordpress_xmlrpc](https://python-wordpress-xmlrpc.readthedocs.org/en/latest/) library, *unless* you used our pip bundle.
+Just type in your terminal :
+    pip install python-wordpress-xmlrpc
+    
+###Use your WP account
+As a WordPress blog owner, you need a [WP account](https://signup.wordpress.com/signup/). 
+Just complete the fields with your username and password, and the url of the website you want to publish on, adding "xmlrpc.php" as following :
+    https://my-website/wordpress.com/xmlrpc.php
+
+WordPress is now ready to use.
 
 __________________________________________________________________________________________________________________
 *Version de Python* 2.7 <s>3.4</s> (la plupart des API actuelles ne sont pas compatible Python3)  
