@@ -141,6 +141,12 @@ class FeedSynchronizer:
 			self.config.set('Tumblr', 'oauth_token', '')
 			self.config.set('Tumblr', 'oauth_secret', '')
 			
+			#Wordpress init
+			self.config.set('Wordpress', 'active', False)
+			self.config.get('Wordpress','username')
+			self.config.get('Wordpress','password')
+			self.config.get('Wordpress','url')
+			
 			# config Twitter
 			self.config.set('Twitter', 'active', False)
 			self.config.set('Twitter', 'consumer_key', '')
@@ -170,6 +176,13 @@ class FeedSynchronizer:
 		oauth_token = self.config.get('Tumblr', 'oauth_token')
 		oauth_secret = self.config.get('Tumblr', 'oauth_secret')
 		self.networkList.append(SenderTumblr(consumer_key, consumer_secret, oauth_token, oauth_secret, active))
+		
+		#Wordpress init
+		active = self.config.getboolean('Wordpress', 'active')
+		username = self.config.get('Wordpress','username')
+		password = self.config.get('Wordpress','password')
+		url = self.config.get('Wordpress','url')
+		self.networkList.append(SenderWordpress(username,password,url,active))
 		
 		# Twitter init
 		active = self.config.getboolean('Twitter', 'active')

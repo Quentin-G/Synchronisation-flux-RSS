@@ -52,6 +52,28 @@ class SenderFacebook(BaseNetwork):
 		return True
 
 
+class SenderWordpress(BaseNetwork):
+	""" Implementation of the Wordpress API """
+	def __init__(self, username, password,url, active)
+		self.client = ( url , username, password )
+		
+		BaseNetwork.__init__(self, active, 'Facebook')
+		
+	def post(self,message)
+		post.title = message['title']
+		post.content = message['summary_detail']['value'].encode('utf8') + "\n" + message['link'].encode('utf8')
+""" Tag and categories if needed :
+		post.terms_names = {
+			'post_tag': ['FeedSynchronizer', 'RSSfeed'],
+			'category': ['FeedSynchronizer']
+		}
+"""
+		post.post_status = 'publish'
+		client.call(NewPost(post))
+		
+		
+		
+
 class SenderTumblr(BaseNetwork):
 	""" Implementation of the Tumblr API """
 	
