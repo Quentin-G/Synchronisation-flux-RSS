@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
 	name = 'FeedSynchronizer',
 	packages = ['FeedSynchronizer'],
-	version = '1.0.0',
+	version = '1.0.1',
 	description = 'Synchronizing a RSS feed to social networks',
 	author = 'Florent Desnous, Quentin Girod, Thomas Marçais',
 	author_email = 'florent.desnous@gmail.com',
@@ -14,6 +14,7 @@ setup(
 		'facebook',
 		'linkedin',
 		'TwitterAPI',
+		'python-wordpress-xmlrpc',
 		'feedparser',
 		'flup']
 )
